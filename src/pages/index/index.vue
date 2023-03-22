@@ -1,5 +1,5 @@
 <template>
-  <view class="index">
+  <view :class="$style.view">
     <view>
       <img src="" alt="" />
     </view>
@@ -15,6 +15,7 @@
 
 <script lang="ts">
 import { Dongdong } from '@nutui/icons-vue-taro'
+import { useDidShow, useLoad } from '@tarojs/taro'
 import { defineComponent, reactive, toRefs } from 'vue'
 
 export default defineComponent({
@@ -29,6 +30,14 @@ export default defineComponent({
       type: 'text',
       show: false,
       cover: false
+    })
+
+    useLoad(param => {
+      console.log('page load', param)
+    })
+
+    useDidShow(options => {
+      console.log('page show', options)
     })
 
     const handleClick = (type, msg, cover = false) => {
@@ -46,8 +55,8 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
-.index {
+<style module>
+.view {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
