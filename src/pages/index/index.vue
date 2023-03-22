@@ -5,18 +5,19 @@
     </view>
     {{ msg }} <Dongdong />
     <view class="btn">
-      <nut-button type="primary" @click="handleClick('text', msg2, true)"
-        >点我</nut-button
-      >
+      <nut-button type="primary" @click="handleClick('text', msg2, true)">
+        点我
+      </nut-button>
     </view>
     <nut-toast v-model:visible="show" :msg="msg2" :type="type" :cover="cover" />
   </view>
 </template>
 
-<script>
+<script lang="ts">
 import { Dongdong } from '@nutui/icons-vue-taro'
-import { reactive, toRefs } from 'vue'
-export default {
+import { defineComponent, reactive, toRefs } from 'vue'
+
+export default defineComponent({
   name: 'Index',
   components: {
     Dongdong
@@ -42,7 +43,7 @@ export default {
       handleClick
     }
   }
-}
+})
 </script>
 
 <style lang="scss">

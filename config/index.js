@@ -1,6 +1,11 @@
 import NutUIResolver from '@nutui/nutui-taro/dist/resolver'
 import Components from 'unplugin-vue-components/webpack'
 
+const componentsConfig = {
+  dts: 'types/components.d.ts',
+  resolvers: [NutUIResolver({ taro: true })]
+}
+
 const config = {
   projectName: 'taro-template',
   date: '2023-3-22',
@@ -37,12 +42,7 @@ const config = {
   },
   mini: {
     webpackChain(chain) {
-      chain.plugin('unplugin-vue-components').use(
-        Components({
-          dts: false,
-          resolvers: [NutUIResolver({ taro: true })]
-        })
-      )
+      chain.plugin('unplugin-vue-components').use(Components(componentsConfig))
     },
     postcss: {
       pxtransform: {
@@ -68,12 +68,7 @@ const config = {
   },
   h5: {
     webpackChain(chain) {
-      chain.plugin('unplugin-vue-components').use(
-        Components({
-          dts: false,
-          resolvers: [NutUIResolver({ taro: true })]
-        })
-      )
+      chain.plugin('unplugin-vue-components').use(Components(componentsConfig))
     },
     publicPath: '/',
     staticDirectory: 'static',
