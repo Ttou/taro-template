@@ -19,6 +19,9 @@
     "jsx": "preserve",
     "allowJs": true,
     "resolveJsonModule": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "typeRoots": [
       "node_modules/@types"
     ]

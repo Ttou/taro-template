@@ -1,3 +1,5 @@
+import { resolve } from 'node:path'
+
 import NutUIResolver from '@nutui/nutui-taro/dist/resolver'
 import Components from 'unplugin-vue-components/webpack'
 
@@ -19,6 +21,9 @@ const config = {
   sourceRoot: 'src',
   outputRoot: 'dist',
   plugins: ['@tarojs/plugin-html'],
+  alias: {
+    '@/store': resolve(__dirname, '..', 'src/store')
+  },
   defineConstants: {},
   copy: {
     patterns: [],

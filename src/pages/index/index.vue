@@ -1,55 +1,40 @@
 <template>
   <view :class="$style.view">
-    <view>
-      <img src="" alt="" />
-    </view>
-    {{ msg }} <Dongdong />
-    <view class="btn">
-      <nut-button type="primary" @click="handleClick('text', msg2, true)">
-        点我
-      </nut-button>
-    </view>
-    <nut-toast v-model:visible="show" :msg="msg2" :type="type" :cover="cover" />
+    <text :class="$style.count">{{ count }}</text>
+    <nut-button :class="$style.btn" @click="handleCount">计算</nut-button>
+    <nut-button :class="$style.btn" @click="handleJump">跳转</nut-button>
   </view>
 </template>
 
 <script lang="ts">
-import { Dongdong } from '@nutui/icons-vue-taro'
-import { useDidShow, useLoad } from '@tarojs/taro'
-import { defineComponent, reactive, toRefs } from 'vue'
+import Taro, { useDidHide, useDidShow, useLoad } from '@tarojs/taro'
+import { defineComponent } from 'vue'
+
+import { useCount } from './hooks'
 
 export default defineComponent({
-  name: 'Index',
-  components: {
-    Dongdong
-  },
   setup() {
-    const state = reactive({
-      msg: '欢迎使用 NutUI4.0 开发小程序',
-      msg2: '你成功了～',
-      type: 'text',
-      show: false,
-      cover: false
-    })
+    const countHook = useCount()
 
-    useLoad(param => {
-      console.log('page load', param)
+    function handleJump() {
+      Taro.navigateTo({ url: '/pages/other/index' })
+    }
+
+    useLoad(options => {
+      console.log('page load', options)
     })
 
     useDidShow(options => {
       console.log('page show', options)
     })
 
-    const handleClick = (type, msg, cover = false) => {
-      state.show = true
-      state.msg2 = msg
-      state.type = type
-      state.cover = cover
-    }
+    useDidHide(() => {
+      console.log('page hide')
+    })
 
     return {
-      ...toRefs(state),
-      handleClick
+      ...countHook,
+      handleJump
     }
   }
 })
@@ -57,9 +42,19 @@ export default defineComponent({
 
 <style module>
 .view {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  min-height: 100%;
+}
+
+.count {
+  font-size: 40px;
+}
+
+.btn {
+  width: 200px;
+  margin-top: 30px;
 }
 </style>
