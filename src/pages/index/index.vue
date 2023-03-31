@@ -10,7 +10,7 @@
         弹窗
       </nut-button>
     </view>
-    <nut-popup :visible="show">
+    <nut-popup v-model:visible="show" closeable>
       <view :class="$style.dialog">
         <view :class="$style.content">
           <text>Hello World</text>
@@ -74,19 +74,21 @@ export default defineComponent({
 }
 
 .title {
-  font-size: 72px;
+  font-size: 36px;
   color: #8f8f94;
 }
 
 .count {
-  margin: 40px auto;
+  margin: 20px auto;
 }
 
 .btn + .btn {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .dialog {
+  width: 400px;
+  height: 200px;
 }
 
 .content {
@@ -94,6 +96,6 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   border-radius: 32px;
-  font-size: 56px;
+  font-size: 28px;
 }
 </style>

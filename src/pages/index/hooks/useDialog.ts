@@ -9,13 +9,8 @@ export function useDialog() {
     state.show = true
   }
 
-  function handleClose() {
-    state.show = false
-  }
-
   return {
     ...toRefs(state),
-    handleOpen,
-    handleClose
+    handleOpen
   }
 }
