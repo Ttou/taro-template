@@ -1,24 +1,40 @@
 <template>
   <view :class="$style.view">
-    <text :class="$style.count">{{ count }}</text>
-    <nut-button :class="$style.btn" @click="handleCount">计算</nut-button>
-    <nut-button :class="$style.btn" @click="handleJump">跳转</nut-button>
+    <view :class="$style.textWrap">
+      <text :class="$style.title">{{ title }}</text>
+      <text :class="$style.count">{{ count }}</text>
+      <nut-button :class="$style.btn" type="primary" @click="handleCount">
+        计数
+      </nut-button>
+      <nut-button :class="$style.btn" type="primary" @click="handleOpen">
+        弹窗
+      </nut-button>
+    </view>
+    <nut-popup :visible="show">
+      <view :class="$style.dialog">
+        <view :class="$style.content">
+          <text>Hello World</text>
+        </view>
+      </view>
+    </nut-popup>
   </view>
 </template>
 
 <script lang="ts">
-import Taro, { useDidHide, useDidShow, useLoad } from '@tarojs/taro'
-import { defineComponent } from 'vue'
+import { useDidHide, useDidShow, useLoad } from '@tarojs/taro'
+import { defineComponent, reactive } from 'vue'
+import { toRefs } from 'vue'
 
-import { useCount } from './hooks'
+import { useCount, useDialog } from './hooks'
 
 export default defineComponent({
   setup() {
-    const countHook = useCount()
+    const state = reactive({
+      title: 'Hello Taro'
+    })
 
-    function handleJump() {
-      Taro.navigateTo({ url: '/pages/other/index' })
-    }
+    const countHook = useCount()
+    const dialogHook = useDialog()
 
     useLoad(options => {
       console.log('page load', options)
@@ -33,8 +49,9 @@ export default defineComponent({
     })
 
     return {
+      ...toRefs(state),
       ...countHook,
-      handleJump
+      ...dialogHook
     }
   }
 })
@@ -49,12 +66,34 @@ export default defineComponent({
   min-height: 100%;
 }
 
-.count {
-  font-size: 40px;
+.textWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.btn {
-  width: 200px;
-  margin-top: 30px;
+.title {
+  font-size: 72px;
+  color: #8f8f94;
+}
+
+.count {
+  margin: 40px auto;
+}
+
+.btn + .btn {
+  margin-top: 40px;
+}
+
+.dialog {
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 32px;
+  font-size: 56px;
 }
 </style>
