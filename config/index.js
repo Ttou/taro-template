@@ -22,6 +22,7 @@ const config = {
   outputRoot: 'dist',
   plugins: ['@tarojs/plugin-html'],
   alias: {
+    '@/static': resolve(__dirname, '..', 'src/static'),
     '@/store': resolve(__dirname, '..', 'src/store')
   },
   defineConstants: {},

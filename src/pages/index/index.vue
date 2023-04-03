@@ -1,5 +1,8 @@
 <template>
   <view :class="$style.view">
+    <view :class="$style.logoWrap">
+      <image :class="$style.logo" src="@/static/logo.png" />
+    </view>
     <view :class="$style.textWrap">
       <text :class="$style.title">{{ title }}</text>
       <text :class="$style.count">{{ count }}</text>
@@ -66,11 +69,28 @@ export default defineComponent({
   min-height: 100%;
 }
 
+.logoWrap {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  height: 200px;
+  width: 200px;
+  padding: 20px;
+  background-image: linear-gradient(180deg, #0000c2, #0000c2);
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+}
+
 .textWrap {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 50px;
 }
 
 .title {
@@ -95,7 +115,8 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 32px;
+  height: 100%;
+  width: 100%;
   font-size: 28px;
 }
 </style>
