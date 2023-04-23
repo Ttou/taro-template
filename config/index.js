@@ -73,14 +73,6 @@ const config = {
     }
   },
   h5: {
-    webpackChain(chain) {
-      chain.plugin('unplugin-vue-components').use(
-        Components({
-          dts: 'types/components.d.ts',
-          resolvers: [NutUIResolver({ taro: true })]
-        })
-      )
-    },
     publicPath: '/',
     staticDirectory: 'static',
     esnextModules: ['nutui-taro', 'icons-vue-taro'],
@@ -96,6 +88,14 @@ const config = {
           generateScopedName: '[local]___[hash:base64:5]'
         }
       }
+    },
+    webpackChain(chain) {
+      chain.plugin('unplugin-vue-components').use(
+        Components({
+          dts: 'types/components.d.ts',
+          resolvers: [NutUIResolver({ taro: true })]
+        })
+      )
     }
   }
 }
