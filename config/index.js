@@ -20,11 +20,7 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: [
-    '@tarojs/plugin-html',
-    '@tarojs/plugin-http',
-    '@tarojs/plugin-mock'
-  ],
+  plugins: ['@tarojs/plugin-html', '@tarojs/plugin-http'],
   alias: {
     '@/apis': resolve(__dirname, '..', 'src/apis'),
     '@/static': resolve(__dirname, '..', 'src/static'),
