@@ -20,10 +20,16 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: ['@tarojs/plugin-html'],
+  plugins: [
+    '@tarojs/plugin-html',
+    '@tarojs/plugin-http',
+    '@tarojs/plugin-mock'
+  ],
   alias: {
+    '@/apis': resolve(__dirname, '..', 'src/apis'),
     '@/static': resolve(__dirname, '..', 'src/static'),
-    '@/store': resolve(__dirname, '..', 'src/store')
+    '@/store': resolve(__dirname, '..', 'src/store'),
+    '@/utils': resolve(__dirname, '..', 'src/utils')
   },
   defineConstants: {},
   copy: {
@@ -42,14 +48,6 @@ const config = {
     data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
   },
   mini: {
-    webpackChain(chain) {
-      chain.plugin('unplugin-vue-components').use(
-        Components({
-          dts: 'types/components.d.ts',
-          resolvers: [NutUIResolver({ taro: true })]
-        })
-      )
-    },
     postcss: {
       pxtransform: {
         enable: true,
@@ -70,6 +68,14 @@ const config = {
           generateScopedName: '[local]___[hash:base64:5]'
         }
       }
+    },
+    webpackChain(chain) {
+      chain.plugin('unplugin-vue-components').use(
+        Components({
+          dts: 'types/components.d.ts',
+          resolvers: [NutUIResolver({ taro: true })]
+        })
+      )
     }
   },
   h5: {
@@ -96,6 +102,12 @@ const config = {
           resolvers: [NutUIResolver({ taro: true })]
         })
       )
+    },
+    devServer: {
+      proxy: {
+        // mock 服务地址
+        '/api': 'http://127.0.0.1:9527'
+      }
     }
   }
 }

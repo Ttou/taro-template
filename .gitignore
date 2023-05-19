@@ -5,6 +5,7 @@ deploy_versions/
 node_modules/
 .DS_Store
 .swc
+project.private.config.json
 
 # Lock files
 pnpm-lock.yaml

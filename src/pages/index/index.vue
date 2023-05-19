@@ -25,17 +25,13 @@
 
 <script lang="ts">
 import { useDidHide, useDidShow, useLoad } from '@tarojs/taro'
-import { defineComponent, reactive } from 'vue'
-import { toRefs } from 'vue'
+import { defineComponent } from 'vue'
 
-import { useCount, useDialog } from './hooks'
+import { useCount, useDialog, useInit } from './hooks'
 
 export default defineComponent({
   setup() {
-    const state = reactive({
-      title: 'Hello Taro'
-    })
-
+    const initHook = useInit()
     const countHook = useCount()
     const dialogHook = useDialog()
 
@@ -52,7 +48,7 @@ export default defineComponent({
     })
 
     return {
-      ...toRefs(state),
+      ...initHook,
       ...countHook,
       ...dialogHook
     }
