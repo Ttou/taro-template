@@ -1,9 +1,7 @@
-import Taro from '@tarojs/taro'
 import axios from 'axios'
 
 const ajax = axios.create({
-  baseURL:
-    Taro.getEnv() === Taro.ENV_TYPE.WEB ? '/api' : 'http://127.0.0.1:9527/api'
+  baseURL: '/api'
 })
 
 ajax.interceptors.request.use(req => {
