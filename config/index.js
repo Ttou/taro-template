@@ -100,10 +100,7 @@ const config = {
       )
     },
     devServer: {
-      proxy: {
-        // mock 服务地址
-        '/api': 'http://127.0.0.1:9527'
-      }
+      proxy: {}
     }
   }
 }

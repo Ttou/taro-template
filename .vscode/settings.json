@@ -2,5 +2,15 @@
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-  "stylelint.enable": true
+  "stylelint.enable": true,
+  "cSpell.words": [
+    "commitlint",
+    "nutui",
+    "pinia",
+    "stylelint",
+    "tarojs",
+    "ttou",
+    "unplugin",
+    "weapp"
+  ]
 }
