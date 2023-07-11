@@ -100,6 +100,7 @@ const config = {
       )
     },
     devServer: {
+      open: false,
       proxy: {}
     }
   }
