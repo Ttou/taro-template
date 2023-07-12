@@ -47,9 +47,7 @@ const config = {
     postcss: {
       pxtransform: {
         enable: true,
-        config: {
-          // selectorBlackList: ['nut-']
-        }
+        config: {}
       },
       url: {
         enable: true,
@@ -65,7 +63,7 @@ const config = {
         }
       }
     },
-    webpackChain(chain) {
+    webpackChain(chain, webpack) {
       chain.plugin('unplugin-vue-components').use(
         Components({
           dts: 'types/components.d.ts',
@@ -91,13 +89,16 @@ const config = {
         }
       }
     },
-    webpackChain(chain) {
+    webpackChain(chain, webpack) {
       chain.plugin('unplugin-vue-components').use(
         Components({
           dts: 'types/components.d.ts',
           resolvers: [NutUIResolver({ taro: true })]
         })
       )
+      chain.merge({
+        stats: 'errors-warnings'
+      })
     },
     devServer: {
       open: false,
