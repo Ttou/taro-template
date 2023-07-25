@@ -1,7 +1,6 @@
-import { resolve } from 'node:path'
-
 import NutUIResolver from '@nutui/nutui-taro/dist/resolver'
 import { defineConfig, type UserConfigExport } from '@tarojs/cli'
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import Components from 'unplugin-vue-components/webpack'
 
 import devConfig from './dev'
@@ -26,12 +25,6 @@ export default defineConfig(async (merge, { command, mode }) => {
     sourceRoot: 'src',
     outputRoot: 'dist',
     plugins: ['@tarojs/plugin-html', '@tarojs/plugin-http'],
-    alias: {
-      '@/apis': resolve(__dirname, '..', 'src/apis'),
-      '@/static': resolve(__dirname, '..', 'src/static'),
-      '@/store': resolve(__dirname, '..', 'src/store'),
-      '@/utils': resolve(__dirname, '..', 'src/utils')
-    },
     defineConstants: {},
     copy: {
       patterns: [],
@@ -69,6 +62,7 @@ export default defineConfig(async (merge, { command, mode }) => {
         }
       },
       webpackChain(chain, webpack) {
+        chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
         chain.plugin('unplugin-vue-components').use(
           Components({
             dts: 'types/components.d.ts',
@@ -95,6 +89,7 @@ export default defineConfig(async (merge, { command, mode }) => {
         }
       },
       webpackChain(chain, webpack) {
+        chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
         chain.plugin('unplugin-vue-components').use(
           Components({
             dts: 'types/components.d.ts',
