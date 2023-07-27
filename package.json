@@ -57,7 +57,7 @@
     "@commitlint/config-conventional": "^17.6.3",
     "@tarojs/cli": "3.6.9",
     "@tarojs/webpack5-runner": "3.6.9",
-    "@ttou/define-config": "^3.0.0",
+    "@ttou/define-config": "^3.1.0",
     "@types/webpack-env": "^1.13.6",
     "@typescript-eslint/eslint-plugin": "^6.1.0",
     "@typescript-eslint/parser": "^6.1.0",
@@ -99,6 +99,16 @@
     "commitizen": {
       "path": "cz-customizable"
     }
+  },
+  "lint-staged": {
+    "*.{ts,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss,vue}": [
+      "stylelint --fix --allow-empty-input",
+      "prettier --write"
+    ]
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
