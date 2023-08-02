@@ -4,7 +4,7 @@
       <image :class="$style.logo" src="@/static/logo.png" />
     </view>
     <view :class="$style.textWrap">
-      <text :class="$style.title">{{ title }}</text>
+      <Welcome :msg="title" />
       <text :class="$style.count">{{ count }}</text>
       <nut-button :class="$style.btn" type="primary" @click="handleCount">
         计数
@@ -27,9 +27,14 @@
 import { useDidHide, useDidShow, useLoad } from '@tarojs/taro'
 import { defineComponent } from 'vue'
 
+import { Welcome } from '@/components'
+
 import { useCount, useDialog, useInit } from './hooks'
 
 export default defineComponent({
+  components: {
+    Welcome
+  },
   setup() {
     const initHook = useInit()
     const countHook = useCount()
@@ -87,11 +92,6 @@ export default defineComponent({
   align-items: center;
   flex-direction: column;
   margin-top: 50px;
-}
-
-.title {
-  font-size: 36px;
-  color: #8f8f94;
 }
 
 .count {

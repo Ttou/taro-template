@@ -5,6 +5,9 @@ export default {
     NODE_ENV: '"production"'
   },
   defineConstants: {},
+  alias: {
+    'vue-types': 'vue-types/shim'
+  },
   mini: {},
   h5: {
     /**
