@@ -1,5 +1,5 @@
 <template>
-  <text :class="$style.welcome">{{ msg }}</text>
+  <text :class="styles.welcome">{{ msg }}</text>
 </template>
 
 <script lang="ts">
@@ -13,7 +13,7 @@ export default defineComponent({
 })
 </script>
 
-<style module>
+<style module="styles">
 .welcome {
   font-size: 36px;
   color: #8f8f94;

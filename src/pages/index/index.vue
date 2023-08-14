@@ -1,21 +1,21 @@
 <template>
-  <view :class="$style.view">
-    <view :class="$style.logoWrap">
-      <image :class="$style.logo" src="@/static/logo.png" />
+  <view :class="styles.view">
+    <view :class="styles.logoWrap">
+      <image :class="styles.logo" src="@/static/logo.png" />
     </view>
-    <view :class="$style.textWrap">
+    <view :class="styles.textWrap">
       <Welcome :msg="title" />
-      <text :class="$style.count">{{ count }}</text>
-      <nut-button :class="$style.btn" type="primary" @click="handleCount">
+      <text :class="styles.count">{{ count }}</text>
+      <nut-button :class="styles.btn" type="primary" @click="handleCount">
         计数
       </nut-button>
-      <nut-button :class="$style.btn" type="primary" @click="handleOpen">
+      <nut-button :class="styles.btn" type="primary" @click="handleOpen">
         弹窗
       </nut-button>
     </view>
     <nut-popup v-model:visible="show" closeable>
-      <view :class="$style.dialog">
-        <view :class="$style.content">
+      <view :class="styles.dialog">
+        <view :class="styles.content">
           <text>Hello World</text>
         </view>
       </view>
@@ -61,7 +61,7 @@ export default defineComponent({
 })
 </script>
 
-<style module>
+<style module="styles">
 .view {
   display: flex;
   justify-content: center;
