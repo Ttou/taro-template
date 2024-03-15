@@ -6,3 +6,5 @@ export const welcomeProps = () => ({
    */
   msg: string().isRequired
 })
+
+export type WelcomeProps = ReturnType<typeof welcomeProps>

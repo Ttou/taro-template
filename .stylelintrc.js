@@ -2,6 +2,7 @@ const { defineStylelintConfig } = require('@ttou/define-config')
 
 module.exports = defineStylelintConfig({
   extends: ['stylelint-config-standard'],
+  plugins: ['stylelint-prettier'],
   overrides: [
     {
       files: ['**/*.scss'],
@@ -13,6 +14,7 @@ module.exports = defineStylelintConfig({
     }
   ],
   rules: {
+    'prettier/prettier': true,
     'block-no-empty': null,
     'no-empty-source': null,
     'property-no-unknown': [true, { ignoreProperties: ['/composes/'] }],

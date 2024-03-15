@@ -12,6 +12,9 @@
       <nut-button :class="styles.btn" type="primary" @click="handleOpen">
         弹窗
       </nut-button>
+      <nut-button :class="styles.btn" type="primary" @click="handleJump">
+        跳转
+      </nut-button>
     </view>
     <nut-popup v-model:visible="show" closeable>
       <view :class="styles.dialog">
@@ -24,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { useDidHide, useDidShow, useLoad } from '@tarojs/taro'
+import { navigateTo, useDidHide, useDidShow, useLoad } from '@tarojs/taro'
 import { defineComponent } from 'vue'
 
 import { Welcome } from '@/components'
@@ -39,6 +42,10 @@ export default defineComponent({
     const initHook = useInit()
     const countHook = useCount()
     const dialogHook = useDialog()
+
+    function handleJump() {
+      navigateTo({ url: '/pages/other/index' })
+    }
 
     useLoad(options => {
       console.log('page load', options)
@@ -55,7 +62,8 @@ export default defineComponent({
     return {
       ...initHook,
       ...countHook,
-      ...dialogHook
+      ...dialogHook,
+      handleJump
     }
   }
 })
