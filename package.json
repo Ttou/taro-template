@@ -22,9 +22,6 @@
     "dev:qq": "npm run build:qq -- --watch",
     "dev:jd": "npm run build:jd -- --watch",
     "dev:quickapp": "npm run build:quickapp -- --watch",
-    "lint": "concurrently \"npm:lint:*\"",
-    "lint:script": "eslint \"./src/**/*.{ts,vue}\" --fix",
-    "lint:style": "stylelint \"./src/**/*.{css,scss,vue}\" --fix",
     "commit": "git add . && git cz",
     "postinstall": "npx simple-git-hooks"
   },
@@ -67,7 +64,6 @@
     "@vue/eslint-config-typescript": "^13.0.0",
     "babel-preset-taro": "3.6.25",
     "commitizen": "^4.3.0",
-    "concurrently": "^8.2.2",
     "css-loader": "6.10.0",
     "cz-customizable": "^7.0.0",
     "eslint": "^8.57.0",
