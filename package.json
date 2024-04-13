@@ -55,7 +55,6 @@
     "@commitlint/config-conventional": "^19.1.0",
     "@tarojs/cli": "3.6.25",
     "@tarojs/webpack5-runner": "3.6.25",
-    "@ttou/define-config": "^3.2.0",
     "@types/webpack-env": "^1.18.4",
     "@typescript-eslint/eslint-plugin": "^7.6.0",
     "@typescript-eslint/parser": "^7.6.0",

@@ -1,6 +1,7 @@
-const { defineStylelintConfig } = require('@ttou/define-config')
-
-module.exports = defineStylelintConfig({
+/**
+ * @type {import('stylelint').Config}
+ */
+module.exports = {
   extends: ['stylelint-config-standard'],
   plugins: ['stylelint-prettier'],
   overrides: [
@@ -27,4 +28,4 @@ module.exports = defineStylelintConfig({
       { ignorePseudoElements: ['v-deep', 'input-placeholder'] }
     ]
   }
-})
+}

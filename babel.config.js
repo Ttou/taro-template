@@ -1,8 +1,9 @@
-const { defineBabelConfig } = require('@ttou/define-config')
-
 // babel-preset-taro 更多选项和默认值：
 // https://github.com/NervJS/taro/blob/next/packages/babel-preset-taro/README.md
-module.exports = defineBabelConfig({
+/**
+ * @type {import('@babel/core').TransformOptions}
+ */
+module.exports = {
   presets: [
     [
       'taro',
@@ -12,4 +13,4 @@ module.exports = defineBabelConfig({
       }
     ]
   ]
-})
+}
