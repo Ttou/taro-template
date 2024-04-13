@@ -4,6 +4,7 @@
   "scss.validate": false,
   "stylelint.enable": true,
   "vue.server.hybridMode": false,
+  "biome.enabled": false,
   "cSpell.words": [
     "commitlint",
     "nutui",
