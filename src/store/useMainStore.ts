@@ -13,8 +13,16 @@ export const useMainStore = defineStore('main', () => {
     state.count++
   }
 
+  /**
+   * 减法
+   */
+  function decrement() {
+    state.count--
+  }
+
   return {
     ...toRefs(state),
-    increment
+    increment,
+    decrement
   }
 })

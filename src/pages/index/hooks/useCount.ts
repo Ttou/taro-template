@@ -7,12 +7,17 @@ export function useCount() {
 
   const count = computed(() => mainStore.count)
 
-  function handleCount() {
+  function handleIncrement() {
     mainStore.increment()
+  }
+
+  function handleDecrement() {
+    mainStore.decrement()
   }
 
   return {
     count,
-    handleCount
+    handleIncrement,
+    handleDecrement
   }
 }

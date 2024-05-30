@@ -6,9 +6,12 @@
     <view :class="styles.textWrap">
       <Welcome :msg="title" />
       <text :class="styles.count">{{ count }}</text>
-      <nut-button :class="styles.btn" type="primary" @click="handleCount">
-        计数
-      </nut-button>
+      <view :class="styles.btn">
+        <nut-space>
+          <nut-button type="primary" @click="handleIncrement"> + </nut-button>
+          <nut-button type="primary" @click="handleDecrement"> - </nut-button>
+        </nut-space>
+      </view>
       <nut-button :class="styles.btn" type="primary" @click="handleOpen">
         弹窗
       </nut-button>
