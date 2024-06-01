@@ -88,9 +88,7 @@
     "webpack": "5.91.0"
   },
   "browserslist": [
-    "last 3 versions",
     "Chrome >= 51",
-    "Android >= 5",
     "ios >= 10"
   ],
   "config": {
