@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const ajax = axios.create({
-  baseURL: '/api'
+  baseURL: process.env.TARO_APP_API
 })
 
 ajax.interceptors.request.use(req => {
