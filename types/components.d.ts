@@ -10,6 +10,5 @@ declare module 'vue' {
     NutButton: typeof import('@nutui/nutui-taro')['Button']
     NutPopup: typeof import('@nutui/nutui-taro')['Popup']
     NutSpace: typeof import('@nutui/nutui-taro')['Space']
-    Welcome: typeof import('./../src/components/Welcome/Welcome.vue')['default']
   }
 }

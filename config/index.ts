@@ -71,6 +71,7 @@ export default defineConfig(async (merge, { command, mode }) => {
         chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
         chain.plugin('unplugin-vue-components').use(
           Components({
+            dirs: [],
             dts: 'types/components.d.ts',
             resolvers: [NutUIResolver({ taro: true })]
           })
@@ -107,6 +108,7 @@ export default defineConfig(async (merge, { command, mode }) => {
         chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
         chain.plugin('unplugin-vue-components').use(
           Components({
+            dirs: [],
             dts: 'types/components.d.ts',
             resolvers: [NutUIResolver({ taro: true })]
           })

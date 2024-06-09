@@ -8,6 +8,7 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "noImplicitAny": false,
+    "noImplicitThis": true,
     "allowSyntheticDefaultImports": true,
     "outDir": "lib",
     "noUnusedLocals": true,
@@ -17,11 +18,13 @@
     "baseUrl": ".",
     "rootDir": ".",
     "jsx": "preserve",
+    "jsxImportSource": "vue",
     "allowJs": true,
     "resolveJsonModule": true,
     "paths": {
       "@/*": ["./src/*"]
     },
+    "types": ["@tarojs/components/vue3"],
     "typeRoots": [
       "node_modules/@types"
     ]
@@ -29,6 +32,6 @@
   "include": ["src", "types"],
   "exclude": ["node_modules"],
   "vueCompilerOptions": {
-    "target": 3.3
+    "target": 3
   }
 }
