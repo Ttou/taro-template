@@ -1,6 +1,6 @@
 import path from 'node:path'
 
-import NutUIResolver from '@nutui/nutui-taro/dist/resolver'
+import NutUIResolver from '@nutui/auto-import-resolver'
 import { defineConfig, type UserConfigExport } from '@tarojs/cli'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import Components from 'unplugin-vue-components/webpack'
@@ -73,7 +73,8 @@ export default defineConfig(async (merge, { command, mode }) => {
           Components({
             dirs: [],
             dts: 'types/components.d.ts',
-            resolvers: [NutUIResolver({ taro: true })]
+            include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/],
+            resolvers: [NutUIResolver({ taro: true, importStyle: 'sass' })]
           })
         )
       }
@@ -110,7 +111,8 @@ export default defineConfig(async (merge, { command, mode }) => {
           Components({
             dirs: [],
             dts: 'types/components.d.ts',
-            resolvers: [NutUIResolver({ taro: true })]
+            include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/],
+            resolvers: [NutUIResolver({ taro: true, importStyle: 'sass' })]
           })
         )
         chain.merge({
