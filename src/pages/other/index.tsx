@@ -2,7 +2,7 @@ import { View } from '@tarojs/components'
 import { navigateBack } from '@tarojs/taro'
 import { defineComponent } from 'vue'
 
-import styles from './index.module.scss'
+import styles from './index.module.css'
 
 export default defineComponent({
   setup() {

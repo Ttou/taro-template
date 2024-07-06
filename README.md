@@ -48,5 +48,6 @@ npm run build:weapp
 - 装上 volar 插件后更好的支持模板开发
 - 使用 Axios 作为跨端网络请求库，上传需要用小程序自己的API
 - 微信小程序要支持 `vue3`，需设置基础库最低版本为 `2.11.2` 或以上，`2.11.2` 对应 `chrome>=53,ios>=10`
+- CSS 变量需要 `chrome>=49,ios>=10`
 - 推荐使用 TSX 开发业务，以免 volar 出问题影响开发
 - NutUI 和 TSX 一起使用时，不用手动导入，在 `types/jsx.d.ts` 增加组件类型即可

@@ -1,0 +1,21 @@
+:root,
+page {
+  --nut-primary-color: #4d80f0;
+
+  /* 使用 css var 修改主题需要额外设置下面 3 个组件颜色 */
+  --nut-address-region-tab-line: linear-gradient(
+    90deg,
+    var(--nut-primary-color) 0%,
+    rgb(var(--nut-primary-color) 0.15) 100%
+  );
+  --nut-tabs-horizontal-tab-line-color: linear-gradient(
+    180deg,
+    var(--nut-primary-color) 0%,
+    rgb(var(--nut-primary-color) 0.15) 100%
+  );
+  --nut-tabs-vertical-tab-line-color: linear-gradient(
+    180deg,
+    var(--nut-primary-color) 0%,
+    rgb(var(--nut-primary-color) 0.15) 100%
+  );
+}

@@ -6,7 +6,7 @@ import { Welcome } from '@/components'
 import logoImg from '@/static/logo.png'
 
 import { useCount, useDialog, useInit } from './hooks'
-import styles from './index.module.scss'
+import styles from './index.module.css'
 
 export default defineComponent({
   setup() {
