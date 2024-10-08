@@ -80,12 +80,12 @@ export default defineConfig(async (merge, { command, mode }) => {
       staticDirectory: 'static',
       esnextModules: ['nutui-taro', 'icons-vue-taro'],
       output: {
-        filename: 'js/[name].[hash:8].js',
+        filename: 'js/[name].[chunkhash:8].js',
         chunkFilename: 'js/[name].[chunkhash:8].js'
       },
       miniCssExtractPluginOption: {
         ignoreOrder: true,
-        filename: 'css/[name].[hash].css',
+        filename: 'css/[name].[chunkhash].css',
         chunkFilename: 'css/[name].[chunkhash].css'
       },
       postcss: {
